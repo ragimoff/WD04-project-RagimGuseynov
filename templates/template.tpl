@@ -1,5 +1,3 @@
-<aside>
-	<h1>Sidebar</h1>
-</aside>
+<body class="index-page footer-bottom">
 
 <?php echo $content; ?>
