@@ -1816,6 +1816,10 @@ ul.admin-nav--right a.admin-nav__link {
 	border-bottom: 1px solid rgba(205, 222, 232, 0);
 }
 
+.header-nav__link--active {
+	border-bottom: none;
+}
+
 .header-nav__active {
 	border-bottom: 1px solid transparent;
 	-webkit-transition: border-bottom 0.4s;

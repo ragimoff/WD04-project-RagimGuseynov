@@ -8,11 +8,11 @@
 				</div>
 				<nav class="footer-nav col-lg-3">
 					<ul>
-						<li><a href="index.html">Главная</a></li>
-						<li><a href="index.html">Обо мне</a></li>
-						<li><a href="index.html">Работы</a></li>
-						<li><a href="index.html">Блог</a></li>
-						<li><a href="index.html">Контакты</a></li>
+						<li><a href="<?=HOST?>">Главная</a></li>
+						<li><a href="<?=HOST?>about">Обо мне</a></li>
+						<li><a href="<?=HOST?>portfolio">Работы</a></li>
+						<li><a href="<?=HOST?>blog">Блог</a></li>
+						<li><a href="<?=HOST?>contacts">Контакты</a></li>
 					</ul>
 				</nav>
 				<div class="footer__item footer__icons col-lg-4">

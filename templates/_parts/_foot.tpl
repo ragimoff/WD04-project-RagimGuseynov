@@ -1,4 +1,4 @@
-<!-- build:jsLibs js/libs.js -->
+		<!-- build:jsLibs js/libs.js -->
 		<script src="<?HOST?>templates/assets/libs/jquery/jquery.min.js"></script>
 		<!-- build:jsMain js/main.js -->
 		<script src="<?HOST?>templates/assets/js/main.js"></script>
