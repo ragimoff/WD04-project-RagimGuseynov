@@ -1,10 +1,10 @@
 <?php
 
 $title="Пост";
-$post=R::findOne('posts', 'id=?', array($_GET['id']));
-/*$post=R::find('posts','ORDER BY ID DESC');*/
 
+$post = R::findOne('posts', 'id=?', array($_GET['id']));
 
+// Готовим контент центральной части
 ob_start();
 include ROOT. "templates/_parts/_header.tpl";
 include ROOT."templates/blog/blog-post.tpl";

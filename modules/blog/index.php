@@ -3,6 +3,8 @@
 
 $title = "Блог - все записи";
 
+$posts = R::find('posts','ORDER BY id DESC');
+
 
 //Готовим контент ценртральной части
 ob_start();

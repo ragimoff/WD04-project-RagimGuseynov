@@ -80,13 +80,14 @@ if (isset($_POST['profile-update']) ) {
 			// Большая картинка
 			$target_file = $avatarFolderLocation . $db_file_name;
 			//$resized_file = $avatarFolderLocation . $db_file_name;
+			// Изменение размеров картинки
 			$wmax = 222;
 			$hmax = 222;
 			$img = createThumbnail($target_file, $wmax, $hmax);
 			$img->writeImage($target_file);
 
 			$user->avatar = $db_file_name;
-
+			// Маленькая картинка
 			$target_file = $avatarFolderLocation . $db_file_name;
 			$resized_file = $avatarFolderLocation . "50-" . $db_file_name;
 			$wmax = 50;
