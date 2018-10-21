@@ -24,7 +24,7 @@
 						<textarea class="textarea" name="postText" type="type" placeholder="Введите текст"></textarea>
 					</label>
 				</div>
-				<input type="submit" name="postNew" class="button button--save mr-20" placeholder="Сохранить" />
+				<input type="submit" name="postNew" class="button button--save mr-20" value="Сохранить" placeholder="Сохранить" />
 				<a class="button" href="<?=HOST?>blog">Отмена</a>
 			</form>
 		</div>
