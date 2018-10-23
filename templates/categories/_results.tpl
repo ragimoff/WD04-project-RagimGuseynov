@@ -1,5 +1,5 @@
 <?php if($_GET['result'] == 'catCreated')   {   ?>
-	<div class="notify success-error mt-10">Категория успешно добвлена!</div>
+	<div class="notify success-error mt-10">Категория успешно добавлена!</div>
 <?php }  ?>
 
 <?php if($_GET['result'] == 'catUpdated')   {   ?>

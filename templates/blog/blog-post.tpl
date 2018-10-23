@@ -4,16 +4,32 @@
 			<div class="col-md-10 offset-md-1">
 				<div class="post">
 					<div class="post-row-top">
-						<h1><?=$post['title']?></h1>
-						<div class="button-right-top"><a class="button button--edit mt-25" href="#">Редактировать</a></div>
+						<?PHP if( isAdmin () ){
+							$additionalHeaderClass = 'mright-100';	
+						}?>
+						<h1 class ='<?=@$additionalHeaderClass?>'><?=$post['title']?></h1>
+						<?PHP if (isAdmin()) { ?>
+							<div class="button-right-top">
+								<a class="button_absolute button button--edit mt-25" href="<?=HOST?>blog/post-edit?id=<?=$post['id']?>">Редактировать</a>
+								<a class="button button--remove mt-25" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
+							</div>
+						<?PHP } ?>
 					</div>
 					<div class="post-info">
-						<div class="post-info__author">Емельян Казаков</div>
-						<div class="post-info__topic"><a class="post-info__link" href="#">Путешествия</a></div>
+						<div class="post-info__author"><?=$post['firstname']?> <?=$post['secondname']?></div>
+						<div class="post-info__topic">
+							<a class="post-info__link" href="#"><?=$post['cat_title']?></a>
+						</div>
 						<div class="post-info__date"><? echo rus_date("j F Y H:i", strtotime($post['date_time']) );?></div>
-						<div class="post-info__comments"><a class="post-info__link" href="#">2 комментария</a></div>
+						<!--<?PHP if (count($comments)>0){?> -->
+							<div class="post-info__comments"><a class="post-info__link" href="#comment"><?PHP commentNumber(count($comments));?></a></div>
+						<!-- <?PHP }?> -->
 					</div>
-					<div class="post-img"><img src="<?=HOST?>usercontent/blog/<?=$post['postImg']?>" alt="<?=$post['title']?>" /></div>
+					<!--<?PHP if ($post['post_image'] !=''){?>-->
+						<div class="post-img">
+							<img src="<?=HOST?>usercontent/blog/<?=$post['postImg']?>" alt="<?=$post['title']?>" />
+						</div>
+					<!--<?PHP }?>-->
 					<div class="post-text">
 						<p><?=$post['text']?></p>
 					</div>
@@ -22,7 +38,12 @@
 					<a class="button button--icon-left" href="#"><i class="fas fa-arrow-left"></i>Назад</a>
 					<a class="button button--icon-right button-blog-next" href="#">Вперёд<i class="fas fa-arrow-right"></i></a>
 				</div>
-				<h2> 2 комментария</h2>
+				<!--<?PHP if (count($comments)>0){?>-->
+					<h2 id='comment'> <?PHP commentNumber(count($comments));?></h2>
+				<!-- 	<?PHP foreach ($comments as $comment){?>
+					<?php include ROOT. "templates/blog/_comment-card.tpl"?>
+					<?PHP }?>
+				<?PHP }?> -->
 				<div class="comments-item">
 					<div class="avatar-block">
 						<div class="avatar avatar--small"><img src="../img/avatars/avatar-2.jpg" alt="avatar" /></div>

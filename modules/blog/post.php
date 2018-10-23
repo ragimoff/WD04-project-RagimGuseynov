@@ -1,8 +1,20 @@
 <?php
 
-$title="Пост";
+$sql = 'SELECT
+			posts.id, posts.title, posts.text, posts.post_img, posts.date_time, posts.cat,
+    		users.firstname, users.secondname,
+    		categories.cat_title 
+		FROM `posts` 
+		INNER JOIN categories ON posts.cat = categories.id 
+		INNER JOIN users ON posts.author_id = users.id 
+		WHERE posts.id = ' . $_GET['id'] . ' LIMIT 1';
 
-$post = R::findOne('posts', 'id=?', array($_GET['id']));
+
+$post = R::getAll( $sql );
+$post = $post[0];
+
+$title = $post['title'];
+
 
 // Готовим контент центральной части
 ob_start();

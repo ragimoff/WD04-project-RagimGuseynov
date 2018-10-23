@@ -1,8 +1,8 @@
 <?php
 
-if (!isAdmin()){
-		header("Location:" . HOST);
-		die();
+if ( !isAdmin() ){		
+	header("Location: " . HOST);
+	die();
 }
 
 $title = "Создать новую категорию";

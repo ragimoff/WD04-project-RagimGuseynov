@@ -1,7 +1,7 @@
 <?php
 
-if (!isAdmin()){		
-	header("Location:" . HOST);
+if ( !isAdmin() ){		
+	header("Location: " . HOST);
 	die();
 }
 
