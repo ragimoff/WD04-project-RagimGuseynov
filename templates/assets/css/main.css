@@ -173,8 +173,22 @@ body {
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-justify-content: space-between;
-	        justify-content: space-between;
+	justify-content: space-between;
+	align-items: space-between;
+}
+
+.delete-img {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.delete-img__check {
+	margin-right: 10px;
 }
 
 .wrap-top {
@@ -885,9 +899,10 @@ a.badge:active {
 }
 
 .formInput-image__delete-button {
-	position: absolute;
+	position: relative;
+	/* position: absolute;
 	bottom: 10px;
-	left: 150px;
+	left: 150px; */
 }
 
 

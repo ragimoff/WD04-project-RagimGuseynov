@@ -23,23 +23,29 @@
 					</select>
 				</div>
 				<div class="blog-edit__container">
+
 					<b>Изображение</b>
+					<?PHP if ($post['post_img_small'] !=''){?>
+						<div class="section-ui">
+							<div class="formInput-image">
+								<img src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" alt="<?=$post->title?>" />
+								<div class="formInput-image__delete-button mt-10 delete-img">
+									<input class="delete-img__check" id="deleteImg" type="checkbox" name="deleteImg" value="Удалить">
+									<label for="deleteImg">Отметьте чтоб заменить на новое фото.</label>
+									<!-- <input type="submit" name="deleteImg" class="button button--small button--remove" value="Удалить" for="deleteImg"> -->
+								</div>		
+							</div>
+						</div>
+					<?PHP } ?>	
+
+
 					<p class="mb-10"> Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более, вес до 2Мб.</p>
 				</div>
 				<div class="blog-edit__fileUp">
 					<input class="inputfile" type="file" name="postImg" id="file" />
 					<label class="label-input-file" for="file">Выбрать файл</label>
 					<span>Файл не выбран</span>
-					<?PHP if ($post['post_img_small'] !=''){?>
-						<div class="section-ui">
-							<div class="formInput-image">
-								<img src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" alt="<?=$post->title?>" />
-								<div class="formInput-image__delete-button">
-									<a class="button button--small button--remove" href="#">Удалить</a>
-								</div>		
-							</div>
-						</div>
-					<?PHP } ?>		
+					
 				</div>
 				
 				<div class="form-group">

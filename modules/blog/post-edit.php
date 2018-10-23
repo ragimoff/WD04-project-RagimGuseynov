@@ -22,9 +22,15 @@ if (isset($_POST['postUpdate']) ) {
 		$post->title = htmlentities($_POST['postTitle']);
 		$post->cat = htmlentities($_POST['postCat']);
 		$post->text = $_POST['postText'];
-		$post->date = time();
 		$post->authorId = $_SESSION['logged_user']['id'];
 		$post->updateTime = R::isoDateTime();
+
+		if (isset($_POST['deleteImg']) && $_POST['deleteImg'] == "Удалить") {
+			unlink( ROOT . 'usercontent/blog/' . $post->postImg );
+			unlink( ROOT . 'usercontent/blog/' . $post->postImgSmall );
+			$post->postImg = '';
+			$post->postImgSmall = '';
+		}
 
 		if (isset($_FILES['postImg']['name']) && $_FILES['postImg']['tmp_name'] != "") {
 			$fileName = $_FILES['postImg']['name'];

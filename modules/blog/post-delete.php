@@ -11,8 +11,9 @@ $post = R::load('posts', $_GET['id']);
 
 if(isset($_POST['postDelete'])){
 
+	$postImage = $post->post_img;
 	$postImageFolderLocation = ROOT.'usercontent/blog/';
-	$postImage = $post->post_image;
+	
 
 	if($postImage !=''){
 		$picurl = $postImageFolderLocation. $postImage;
