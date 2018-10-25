@@ -1,15 +1,15 @@
 <?php
 
-$title = "Контакты";
+$title = "Сообщения";
 
-$contacts = R::load('contacts', 1);
 
+// $cats = R::find('categories', 'ORDER BY cat_title ASC');
 
 
 // Готовим контент центральной части
 ob_start();
 include ROOT. "templates/_parts/_header.tpl";
-include ROOT."templates/contacts/contacts.tpl";
+include ROOT."templates/contacts/messages.tpl";
 /*include ROOT. "templates/main/main.tpl";*/
 $content = ob_get_contents();
 ob_end_clean();

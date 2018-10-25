@@ -18,7 +18,7 @@ $sqlComment = 'SELECT
 			comments.text, comments.date_time, comments.user_id,
 			users.firstname, users.secondname, users.avatar_small
 		FROM comments
-		INNER JOIN users ON comments.user_id = user.id
+		INNER JOIN users ON comments.user_id = users.id
 		WHERE comments.post_id = ' . $_GET['id'];
 
 $comments = R::getAll( $sqlComment );

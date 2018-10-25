@@ -12,7 +12,8 @@
 				<?=$_SESSION['logged_user']['firstname']?>
 				<?=$_SESSION['logged_user']['secondname']?>
 			</h6>
-			<div class="notify notify--error">Комментарий не может быть пустым</div><textarea class="textarea textarea--comment-add" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
+			<?php require ROOT . "templates/_parts/_errors.tpl" ?>
+			<textarea class="textarea textarea--comment-add" name="commentText" placeholder="Присоединиться к обсуждению..."></textarea>
 			<input type="submit" class="button" name="addComment" value="Опубликовать">
 		</div>
 	</form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 24 2018 г., 00:47
+-- Время создания: Окт 25 2018 г., 16:48
 -- Версия сервера: 5.6.38
 -- Версия PHP: 5.5.38
 
@@ -88,6 +88,33 @@ INSERT INTO `comments` (`id`, `post_id`, `user_id`, `text`, `date_time`) VALUES
 (4, 21, 1, 'ававав', '2018-10-23 21:46:33'),
 (5, 21, 1, 'вывывыываукуп', '2018-10-23 21:46:39'),
 (6, 21, 4, 'dsdsadsadsafd3232323', '2018-10-23 21:49:15');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `phone` varchar(191) DEFAULT NULL,
+  `address` varchar(191) DEFAULT NULL,
+  `firstname` varchar(191) DEFAULT NULL,
+  `secondname` varchar(191) DEFAULT NULL,
+  `skype` varchar(191) DEFAULT NULL,
+  `vk` varchar(191) DEFAULT NULL,
+  `fb` varchar(191) DEFAULT NULL,
+  `github` varchar(191) DEFAULT NULL,
+  `twitter` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `firstname`, `secondname`, `skype`, `vk`, `fb`, `github`, `twitter`) VALUES
+(1, 'mail@gmail.com', '0506895425', 'London', 'Anthony', 'Martial', 'mar012', 'https://vk.com/club165382774', '', 'https://github.com/ragimoff', '');
 
 -- --------------------------------------------------------
 
@@ -177,6 +204,12 @@ ALTER TABLE `comments`
   ADD KEY `index_foreignkey_comments_user` (`user_id`);
 
 --
+-- Индексы таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
@@ -210,6 +243,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
