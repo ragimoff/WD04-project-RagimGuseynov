@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 25 2018 г., 16:48
+-- Время создания: Окт 26 2018 г., 07:06
 -- Версия сервера: 5.6.38
 -- Версия PHP: 5.5.38
 
@@ -119,6 +119,30 @@ INSERT INTO `contacts` (`id`, `email`, `phone`, `address`, `firstname`, `secondn
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `firstname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_520_ci,
+  `data_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `messages`
+--
+
+INSERT INTO `messages` (`id`, `email`, `firstname`, `message`, `data_time`) VALUES
+(1, 'mail@gmail.com', 'Рагим', 'Привет', NULL),
+(2, 'mail@gmail.com', 'Рагим', 'Привет', NULL),
+(8, 'цуу', 'цйцу', 'цуц', '2018-10-26 06:35:51'),
+(9, 'johndoe@gmail.com', 'Джон До ', 'Привет, как дела? наконец то написал тебе. Посмотри ТЗ нового проекта. Делаем стартап в B2B сфере, юриспуриденция, контракты, право. Инвестиции уже получены и нам нужен классный фронт энд разработчик, как раз - такой как ты. Будет круто если сможешь поработать с нами.', '2018-10-26 06:58:32');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `posts`
 --
 
@@ -210,6 +234,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
@@ -249,6 +279,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`

@@ -2,6 +2,7 @@
 
 $title = "Сообщения";
 
+$messages = R::find('messages', 'ORDER BY id DESC');
 
 // $cats = R::find('categories', 'ORDER BY cat_title ASC');
 
