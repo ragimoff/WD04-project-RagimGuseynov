@@ -21,26 +21,34 @@ if ( isset($_POST['newMessage']) ){
 		$message->message = htmlentities($_POST['message']);
 		$message->dataTime = R::isoDateTime();
 
-		if ( isset($_FILES["file"]["name"]) && $_FILES["file"]["tmp_name"] != "" ) {
+		if ( isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] != '' ) {
 
-			// Write file image params in variables
-			$fileName = $_FILES["file"]["name"];
-			$fileTmpLoc = $_FILES["file"]["tmp_name"];
-			$fileType = $_FILES["file"]["type"];
-			$fileSize = $_FILES["file"]["size"];
-			$fileErrorMsg = $_FILES["file"]["error"];
+			// записываем параметры изображения в переменные
+			$fileName = $_FILES['file']['name'];
+			$fileTmpLoc = $_FILES['file']['tmp_name'];
+			$fileType = $_FILES['file']['type'];
+			$fileSize = $_FILES['file']['size'];
+			$fileErrorMsg = $_FILES['file']['error'];
 			$kaboom = explode(".", $fileName);
 			$fileExt = end($kaboom);
 
 			$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
 
 			if($fileSize > 4194304) {
-				$errors[] = ['title' => 'Загруженный файл больше 4mb' ];
-			} else if (!preg_match("/\.(gif|jpg|png|pdf|doc)$/i", $fileName) ) {
-				$errors[] = ['title' => 'Файл должен иметь следующие расширения: jpg, gif, png, pdf, doc' ];
-			} else if ($fileErrorMsg == 1) {
-				$errors[] = ['title' => 'Произошла ошибка' ];
+				$errors[] = ['title' => 'Изображение превышает размер в 4Мб' ];
+			} 
+
+			if (!preg_match("/\.(gif|jpg|png|pdf|doc)$/i", $fileName) ) {
+				$errors[] = [
+					'title' => 'Неверный формат файла',
+					'desc' => '<p>Изображение должно быть в формате jpg, jpeg, gif или png. Выберите другое изображение.</p>'	
+				 ];
+			} 
+
+			if ($fileErrorMsg == 1) {
+				$errors[] = ['title' => 'Произошла ошибка при загрузке изображения.' ];
 			}
+
 			$postImgFolderLocation = ROOT . 'usercontent/upload_files/';
 
 			// Перемещаем загруженный файл в нужную директорию

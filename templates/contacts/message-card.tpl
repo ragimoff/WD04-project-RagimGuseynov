@@ -2,7 +2,7 @@
 	<div class="user-message">
 		<div class="user-message__top">
 
-			<div class="user-message__date"><?=$message->data_time?></div><a class="button button--small button--remove" href="#">Удалить</a>
+			<div class="user-message__date"><?=$message->data_time?></div><a class="button button--small button--remove" href="<?=HOST?>messages-delete?id=<?=$message->id?>">Удалить</a>
 		</div>
 		<div class="user-message__header">
 			<?php if ($message->firstname != '') {  ?>

@@ -93,10 +93,22 @@ switch ( $uri[0] ) {
 		 break;
 
 
-
+//::::::::::::::::::::::::: About ::::::::::::::::::::::
 
 	case 'about':
 		include ROOT . "modules/about/index.php";
+		break;
+
+	case 'edit-text':
+		include ROOT . "modules/about/edit-text.php";
+		break;
+
+	case 'edit-skills':
+		include ROOT . "modules/about/edit-skills.php";
+		break;
+
+	case 'edit-jobs':
+		include ROOT . "modules/about/edit-jobs.php";
 		break;
 
 
@@ -114,12 +126,18 @@ switch ( $uri[0] ) {
 		include ROOT . "modules/contacts/messages.php";
 		break;
 
+	case 'messages-delete':
+		include "modules/contacts/messages-delete.php";
+		break;
+
 
 
 	case 'content':
 		include ROOT . "modules/content/index.php";
 		break;
+
 		
+//::::::::::::::::::::::::: MAIN/OTHER ::::::::::::::::::::::
 	default:
 		echo "404 and main page";
 		break;				
