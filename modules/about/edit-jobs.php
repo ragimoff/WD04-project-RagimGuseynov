@@ -4,9 +4,7 @@ if ( !isAdmin() ){
 	header("Location: " . HOST);
 	die();
 }
-
 $jobs = R::find('jobs', 'ORDER BY id DESC');
-
 $title = "Редактировать - Опыт работы";
 
 if (isset($_POST['newJob'])) {
@@ -23,8 +21,13 @@ if (isset($_POST['newJob'])) {
 		$job->title = htmlentities($_POST['title']);
 		$job->description = htmlentities($_POST['description']);
 		R::store($job);
+
+		header("Location:" . HOST . "about/?result=catUpdated");
+		exit();
 	}
 }
+
+
 
 
 // Готовим контент центральной части

@@ -99,6 +99,10 @@ switch ( $uri[0] ) {
 		include ROOT . "modules/about/index.php";
 		break;
 
+	case 'about/jobs-delete':
+		 include ROOT."modules/about/jobs-delete.php";
+		 break;
+
 	case 'edit-text':
 		include ROOT . "modules/about/edit-text.php";
 		break;

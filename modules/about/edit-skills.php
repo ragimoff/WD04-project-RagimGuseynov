@@ -17,7 +17,6 @@ if ( isset($_POST['skillsUpdate'])) {
 		}
 	}
 	if ( empty($errors)) {
-		$skills = R::dispense('skills');
 
 		$skills->html = htmlentities($_POST['html']);
 		$skills->css = htmlentities($_POST['css']);

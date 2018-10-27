@@ -1,12 +1,10 @@
 <?php 
 
+$title = "Главная страница";
 
-$details = R::find('about');
+$about = R::findOne('about', 1);
+$posts = R::find('posts', 'ORDER BY id DESC LIMIT 3');
 
-$aboutName = $details[1]['name'];
-$aboutDescription = $details[1]['description'];
-
-$content = "Содержимое главной страницы";
 
 // Готовим контент для центральной части
 ob_start();

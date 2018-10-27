@@ -100,7 +100,7 @@
 				<div class="contacts__title title-1">Связаться со мной</div>
 				<?php include( ROOT . 'templates/_parts/_errors.tpl') ?>
 				<?php include( ROOT . 'templates/_parts/_success.tpl') ?>
-				<form class="form-contacts" action="<?=HOST?>contacts" method="POST" enctype="multipart">
+				<form class="form-contacts" action="<?=HOST?>contacts" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="label">
 							<input class="input" name="firstname" type="text" placeholder="Введите имя" />
