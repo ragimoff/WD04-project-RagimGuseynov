@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 26 2018 г., 23:20
+-- Время создания: Окт 28 2018 г., 09:11
 -- Версия сервера: 5.6.38
 -- Версия PHP: 5.5.38
 
@@ -140,7 +140,8 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`id`, `period`, `title`, `description`) VALUES
 (1, 'февраль 2017 &mdash; по настоящее время', 'Frontend разработчик, Вконтактe, mail.ru group ', 'Работы в команде Вконтакте. Работал в команде над обновление сервиса Музыка, работа над видео разделом. Создание видеоплеера. Создание кроссбраузерных компонентов. Работа над оптимизацией скорости загрузки медиа контента'),
 (4, 'сентябрь 2015 &mdash; январь 2017', 'Разработчик интерфейсов, Яндекс', 'Работы в проекте Яндекс Музыка. Создание новых разделов сервиса. Оптимизация и создание новых компонентов платформы.'),
-(5, 'март 2013 &mdash; август 2015', 'Веб-разработчик, Cloud studio', 'Frontend и Backend для клиентских проектов студии. Работа над студийной CMS для интернет магазинов. Участие в разработке CRM системы &ldquo;Sky CRM&rdquo;. Стек используемых технологий: Git, JS, Angular.');
+(5, 'март 2013 &mdash; август 2015', 'Веб-разработчик, Cloud studio', 'Frontend и Backend для клиентских проектов студии. Работа над студийной CMS для интернет магазинов. Участие в разработке CRM системы &ldquo;Sky CRM&rdquo;. Стек используемых технологий: Git, JS, Angular.'),
+(11, 'февраль 2017 &mdash; по настоящее время', 'Frontend разработчик, Вконтактe, mail.ru group ', 'Работы в команде Вконтакте. Работал в команде над обновление сервиса Музыка, работа над видео разделом. Создание видеоплеера. Создание кроссбраузерных компонентов. Работа над оптимизацией скорости загрузки медиа контента');
 
 -- --------------------------------------------------------
 
@@ -153,16 +154,19 @@ CREATE TABLE `messages` (
   `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `firstname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `message` text COLLATE utf8mb4_unicode_520_ci,
-  `data_time` datetime DEFAULT NULL
+  `data_time` datetime DEFAULT NULL,
+  `message_file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `message_file` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `messages`
 --
 
-INSERT INTO `messages` (`id`, `email`, `firstname`, `message`, `data_time`) VALUES
-(9, 'johndoe@gmail.com', 'Джон До ', 'Привет, как дела? наконец то написал тебе. Посмотри ТЗ нового проекта. Делаем стартап в B2B сфере, юриспуриденция, контракты, право. Инвестиции уже получены и нам нужен классный фронт энд разработчик, как раз - такой как ты. Будет круто если сможешь поработать с нами.', '2018-10-26 06:58:32'),
-(10, 'wayne@mail.com', 'Wayne', 'Получи исходники и выполняй проект параллельно со мной!', '2018-10-26 07:23:41');
+INSERT INTO `messages` (`id`, `email`, `firstname`, `message`, `data_time`, `message_file_name_original`, `message_file`) VALUES
+(9, 'johndoe@gmail.com', 'Джон До ', 'Привет, как дела? наконец то написал тебе. Посмотри ТЗ нового проекта. Делаем стартап в B2B сфере, юриспуриденция, контракты, право. Инвестиции уже получены и нам нужен классный фронт энд разработчик, как раз - такой как ты. Будет круто если сможешь поработать с нами.', '2018-10-26 06:58:32', NULL, NULL),
+(10, 'wayne@mail.com', 'Wayne', 'Получи исходники и выполняй проект параллельно со мной!', '2018-10-26 07:23:41', NULL, NULL),
+(21, ' Martial', 'Anthony', 'Нужны правки на сайте', '2018-10-27 22:23:43', 'Portfolio-3.png', '831905315.png');
 
 -- --------------------------------------------------------
 
@@ -220,7 +224,8 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `yarn`) VALUES
-(1, '100', 80, 40, 40, 30, 30, 40, 40, 20);
+(1, '100', 80, 40, 40, 30, 30, 40, 40, 20),
+(3, '50', 80, 40, 40, 30, 30, 40, 40, 20);
 
 -- --------------------------------------------------------
 
@@ -252,6 +257,37 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`, `firstname`, `secondname
 (2, 'rgm.int01@gmail.com', '$2y$10$jlrV33/iTPS1UBHsjCBUIeGVCsbZGUTue5e5hrnqtF5N1Pp9ZiV9a', 'user', 'Али', 'Асланов', 'Баку', 'Азербайджан', '702572697.jpg', '48-702572697.jpg', '3MJ9hFtGcImeUgY', 0),
 (3, 'info2@mail.com', '$2y$10$dGmmcrJi9B7TATYlgKr2beTywbabQ7nTSQit.06pLDgENubFqwj16', 'user', 'Емельян', 'Казаков', 'Казань', 'Россия', '790276935.jpg', '50-790276935.jpg', 'fGmEUNpYqT0i2RH', 0),
 (4, 'wqq@ds.tr', '$2y$10$RDEWTJxeECW19MV844JEdu.hUM.bgGGJHl8XFgShBB1OQ/yDMCfuy', 'user', 'john', 'doe', '', 'USA', '238493342.jpg', '50-238493342.jpg', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `works`
+--
+
+CREATE TABLE `works` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `text` text COLLATE utf8mb4_unicode_520_ci,
+  `result` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `tech` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `github` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `author_id` int(11) UNSIGNED DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL,
+  `work_photo` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `work_img_small` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `works`
+--
+
+INSERT INTO `works` (`id`, `title`, `text`, `result`, `tech`, `link`, `github`, `author_id`, `date_time`, `work_photo`, `work_img_small`) VALUES
+(1, 'Верстка и frontend Интернет магазина', 'Кратко о проекте\r\n\r\nСделана верстка и фронтэнд для интернет магазина мебели. Сверстано более 50-ти страниц. Сделаны все эффекты и интерактив. В работе использованы препроцессоры pug и less. Интерактив написан на JavaScript. Весь проект протестирован на своместимость, начиная с IE9. Для старых браузеров использован подход Graceful Degradation.\r\nВремя работы над проектом: 6 недель\r\nСтраниц сверстано: 52 страницы\r\nБюджет проекта: до 60 000 рублей', 'Проект сделан в срок. Заказчик доволен. Сайт запущен, работает и уже радует покупками посетителей и владельцев бизнеса.', '\r\n\r\n    HTML5, CSS3.\r\n    JavaScript, jQuery.\r\n    LESS, PUG, Gulp, npm, bower.\r\n\r\n', 'http://magnum-store.ru', 'https://github.com/pozitive/magnumstore/', 1, '2018-10-27 22:46:38', '-108587728.jpg', '320--108587728.jpg'),
+(2, 'Блог', 'Изображение jpg или png, рекомендуемая ши', 'Изображение jpg или png, рекомендуемая ши', '<p>Изображение jpg или png, рекомендуемая ши</p>\r\n', 'Изображение jpg или png, рекомендуемая ши', 'Изображение jpg или png, рекомендуемая ши', 1, '2018-10-27 23:45:50', '570808791.png', '320-570808791.png'),
+(3, 'аваы', 'авыа', 'ыва', '<p>аыва</p>\r\n', 'ыва', 'ываыв', 1, '2018-10-27 23:46:30', '-411549832.png', '320--411549832.png'),
+(4, 'вфывыф', 'вфыв', 'вфыв', '<p>выфвф</p>\r\n', 'фывы', 'фывфы', 1, '2018-10-27 23:47:29', '987744894.png', '320-987744894.png'),
+(5, 'вфывыфв', 'вфыв', 'фывфы', '<p>вфыв</p>\r\n', 'фыв', 'ыфвфы', 1, '2018-10-27 23:48:08', '809727232.png', '320-809727232.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -315,6 +351,13 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `works`
+--
+ALTER TABLE `works`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_works_author` (`author_id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -328,7 +371,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
@@ -340,19 +383,19 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT для таблицы `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
@@ -364,13 +407,19 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT для таблицы `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `works`
+--
+ALTER TABLE `works`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
