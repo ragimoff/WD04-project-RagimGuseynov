@@ -1,9 +1,4 @@
 <div class="content">
-	<?php
-		if( isset ($_GET['result']) ) {
-			include ROOT . "templates/categories/_results.tpl";
-		}
-	?>
 	<div class="container user-content section-page about-me__description-wrapper mb-60">
 		<?php include(ROOT.'templates/about/_about-text.tpl')?>
 	</div>

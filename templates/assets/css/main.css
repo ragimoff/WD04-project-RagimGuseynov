@@ -341,6 +341,11 @@ a.badge:active {
 	left: -180px;
 }
 
+.button_absolute-right {
+	position: absolute;
+	right: 140;
+}
+
 .button:hover,
 .button:focus {
 	border-color: #DDE8EE;
@@ -1915,7 +1920,7 @@ ul.admin-nav--right a.admin-nav__link {
 
 .my-portfolio {
 	background-color: #fff;
-	background-image: url("../img/bg/my-portfolio.jpg");
+	background-image: url("../img/pages/bg-single-work.png");
 	background-size: cover;
 	background-position: top center;
 	background-repeat: no-repeat;

@@ -2,6 +2,11 @@
 	<div class="section-page">
 		<div class="container">
 			<div class="row">
+					<?php
+						if( isset ($_GET['result']) ) {
+							include ROOT . "templates/categories/_results.tpl";
+						}
+					?>
 				<div class="col-md-10 offset-md-1 user-content">
 					<div class="title-1 mb-35">Редактировать - Опыт работы</div>
 						<?php foreach($jobs as $job) { ?>

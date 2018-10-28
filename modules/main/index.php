@@ -4,6 +4,7 @@ $title = "Главная страница";
 
 $about = R::findOne('about', 1);
 $posts = R::find('posts', 'ORDER BY id DESC LIMIT 3');
+$works = R::find('works', 'ORDER BY id DESC LIMIT 3');
 
 
 // Готовим контент для центральной части

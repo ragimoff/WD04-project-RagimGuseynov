@@ -70,6 +70,24 @@ switch ( $uri[0] ) {
 		include ROOT . "modules/categories/delete.php";
 		break;
 
+		// :::::::::::: Portfolio ::::::::::::
+	case 'portfolio':
+		include "modules/portfolio/index.php";
+		break;
+	case 'portfolio/work-new':
+		include "modules/portfolio/work-new.php";
+		break;
+	case 'portfolio/work-edit':
+		include "modules/portfolio/work-edit.php";
+		break;
+	case 'portfolio/work-delete':
+		include "modules/portfolio/work-delete.php";
+		break;
+	case 'portfolio/work':
+		include "modules/portfolio/portfolio.php";
+		break;
+
+
 
 //::::::::::::::::::::::::: BLOG ::::::::::::::::::::::
 	case 'blog':
