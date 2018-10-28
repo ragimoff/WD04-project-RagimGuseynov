@@ -2,8 +2,8 @@
 
 $sql = ' 
 	SELECT 
-		works.id, works.title, works.text, works.tech, works.work_img, works.work_img_small, works.date_time, works.author_id, works.cat, works.link, works.github,
-		users.name, users.secondname
+		works.id, works.title, works.text, works.tech, works.work_photo, works.work_img_small, works.date_time, works.author_id, works.link, works.github,
+		users.firstname, users.secondname
 	FROM `works`
 	INNER JOIN users ON works.author_id = users.id
 	WHERE works.id = ' . $_GET['id'] . ' LIMIT 1';

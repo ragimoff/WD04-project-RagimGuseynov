@@ -343,7 +343,7 @@ a.badge:active {
 
 .button_absolute-right {
 	position: absolute;
-	right: 140;
+	right: 140px;
 }
 
 .button:hover,

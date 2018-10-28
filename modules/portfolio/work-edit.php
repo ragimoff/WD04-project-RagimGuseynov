@@ -11,10 +11,6 @@ $work = R::load('works', $_GET['id']);
 $cats = R::find('categories', 'ORDER BY cat_title ASC');
 
 if (isset($_POST['workUpdate'])) {
-	// echo "<pre>";
-	// print_r($_POST);
-	// echo "</pre>";
-	// die();
 		if ( trim($_POST['workTitle']) == '' ) {
 			$errors[] = ['title' => 'Введите заголовок работы'];
 		}
@@ -23,7 +19,6 @@ if (isset($_POST['workUpdate'])) {
 		}
 		if (empty($errors)) {
 		$work->title = htmlentities($_POST['workTitle']);
-		// $work->cat = htmlentities($_POST['workCat']);
 		$work->text = $_POST['workText'];
 		$work->result = $_POST['workResult'];
 		$work->tech = $_POST['workTech'];
@@ -31,6 +26,7 @@ if (isset($_POST['workUpdate'])) {
 		$work->github = $_POST['workGit'];
 		$work->authorID = $_SESSION['logged_user']['id'];
 		$work->updateTime = R::isoDateTime();
+		
 		if (isset($_POST['deleteImg']) &&  $_POST['deleteImg'] == "Удалить" ) {
 			unlink( ROOT . 'usercontent/portfolio/' . $work->workPhoto );
 			unlink( ROOT . 'usercontent/portfolio/' . $work->workImgSmall );
@@ -66,7 +62,7 @@ if (isset($_POST['workUpdate'])) {
 			}
 			// Перемещаем загруженный файл в нужную директорию
 			$db_file_name = rand(100000000000, 999999999999) . "." . $fileExt;
-			$workImgFolderLocation = ROOT . 'usercontent/works/';
+			$workImgFolderLocation = ROOT . 'usercontent/portfolio/';
 			$uploadFile = $workImgFolderLocation . $db_file_name;
 			$moveResult = move_uploaded_file($fileTmpLoc, $uploadFile);
 			// Если есть загруженное ранее изображение, то удаляем его
@@ -95,8 +91,8 @@ if (isset($_POST['workUpdate'])) {
 			$work->workPhoto = $db_file_name;
 			$target_file = $workImgFolderLocation . $db_file_name;
 			$resized_file = $workImgFolderLocation  . "320-" . $db_file_name;
-			$wmax = 320;
-			$hmax = 200;
+			$wmax = 350;
+			$hmax = 140;
 			$img = createThumbnailCrop($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 			$work->workImgSmall = "320-" . $db_file_name;

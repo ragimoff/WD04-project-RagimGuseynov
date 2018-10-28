@@ -72,7 +72,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-10 my-portfolio__buttons-nav offset-md-1"><a class="button button--icon-left" href="#"><i class="fas fa-arrow-left"></i>Все работы</a><a class="button button--icon-right" href="#">Следующая работа<i class="fas fa-arrow-right"></i></a></div>
+				<div class="col-md-10 my-portfolio__buttons-nav offset-md-1">
+					<a class="button button--icon-left" href="#"><i class="fas fa-arrow-left"></i>Все работы</a>
+					<a class="button button--icon-right" href="#">Следующая работа<i class="fas fa-arrow-right"></i></a>
+				</div>
 			</div>
 		</div>
 	</section>

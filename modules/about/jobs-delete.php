@@ -9,8 +9,9 @@ $title = "Удаление места работы";
 $job = R::load('jobs', $_GET['id']);
 
 if (isset($_POST['JobsDelete'])){ 
+
 		R::trash($job);
-		header("Location:".HOST."about?result=messageDelete");
+		header(" Location: " . HOST . "profile-edit?result=jobsDelete");
 		exit();
 }
 

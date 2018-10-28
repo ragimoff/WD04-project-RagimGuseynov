@@ -1,17 +1,5 @@
-<?PHP if($_GET['result']=='catCreated'){?>		
-	<div class="notify no-radius-bottom success-error mt-10 success-error" data-notify-hide>
-		Место работы успешно добавлено!
-	</div>	
-<?PHP } ?> 
-
-<?PHP if($_GET['result']=='catUpdate'){?>		
-	<div class="notify no-radius-bottom success-error mt-10 success-error" data-notify-hide>
-		Место работы успешно отредактировано!
-	</div>	
-<?PHP } ?> 
-
-<?PHP if($_GET['result']=='catDelete'){?>
-	<div class="notify no-radius-bottom notify--error mt-10 " data-notify-hide>
-		Место работы успешно удалено!
-	</div>	
-<?PHP } ?>
+<?php if ($_GET['result'] == 'jobsDelete') {?>
+	<div class="mt-20 notify notify--error mb-20" data-notify-hide>
+		Информация о месте работы успешно удалена!
+	</div>
+<?php } ?>

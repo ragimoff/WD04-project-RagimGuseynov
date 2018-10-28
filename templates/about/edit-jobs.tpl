@@ -4,7 +4,7 @@
 			<div class="row">
 					<?php
 						if( isset ($_GET['result']) ) {
-							include ROOT . "templates/categories/_results.tpl";
+							include ROOT . "templates/about/_results.tpl";
 						}
 					?>
 				<div class="col-md-10 offset-md-1 user-content">

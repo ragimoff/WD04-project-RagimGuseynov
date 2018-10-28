@@ -2,6 +2,10 @@
 	<div class="container user-content section-page">
 		<div class="row">
 			<form class="col-md-10 offset-md-1" method="POST" action="<?=HOST?>about/jobs-delete?id=<?=$job['id']?>" >
+				<?PHP
+				   	if( isset ($_GET['result'])){
+					include ROOT ."templates/about/_results.tpl";
+		  		}?>
 				<h1>Удалить описание места работы </h1>
 				<div class="user-message mb-20">
 				<div class="user-message__top">

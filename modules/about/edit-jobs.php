@@ -22,7 +22,7 @@ if (isset($_POST['newJob'])) {
 		$job->description = htmlentities($_POST['description']);
 		R::store($job);
 
-		header("Location:" . HOST . "about/?result=catUpdated");
+		header("Location:" . HOST . "about");
 		exit();
 	}
 }

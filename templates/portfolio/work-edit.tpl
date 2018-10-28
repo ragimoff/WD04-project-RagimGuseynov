@@ -1,5 +1,5 @@
 <div class="content">
-	<form class="container user-content section-page" action="<?=HOST?>/works/work-edit?id=<?=$work['id']?>" method="POST" enctype="multipart/form-data">
+	<form class="container user-content section-page" action="<?=HOST?>portfolio/work-edit?id=<?=$work['id']?>" method="POST" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
 				<h1>Редактировать работу</h1>
